@@ -1,15 +1,9 @@
 # HTCondor Snakemake profile
 
-This profile configures Snakemake to submit jobs to a HTCondor cluster.
+This profile configures Snakemake to submit jobs to the grid via DIRAC. This is primarily aimed for users of CERN/ganga.
 
 ### Prerequisites
-The profile makes use of the HTCondor python bindings which can be installed with 
-
-    pip install --user htcondor
-    
-or using Anaconda with
-
-    conda install -c conda-forge python-htcondor
+Assumes you have valid access to DIRAC.
 
 ### Deploy profile
 
@@ -24,6 +18,6 @@ The logs will be used to update the status of submitted jobs (as recommended in 
 
 Then, you can run Snakemake with
 
-    snakemake --profile htcondor ...
+    snakemake --profile ganga_dirac ...
 
 so that jobs are submitted to the cluster. If Snakemake is killed and restarted afterwards, it will automatically resume still running jobs.
